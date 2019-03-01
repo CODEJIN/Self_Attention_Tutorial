@@ -271,9 +271,6 @@ class Self_Attention_Model:
         with open(os.path.join(test_Path, '{}.txt'.format(str(result_Dict['Glaobal_Step']))).replace('\\', '/'), 'w') as f:
             f.write('\n'.join(['\t'.join([word, pronunciation, prediction, str(accuracy)]) for word, pronunciation, prediction, accuracy in export_Zip]));
 
-        if result_Dict['Glaobal_Step'] > 9999:
-            assert False;
-
     def Inference(self, word_List, file='Inference.txt'):
         result_Dict = self.tf_Session.run(
             fetches= self.inference_Tensor_Dict,
